@@ -25,7 +25,7 @@ const getRecipeByIngredient = async (req, res) => {
 
 //add a recipe
 const createRecipe = async (req, res) => {
-	const { name, image, ingredients, instructions, description, picture } = req.body;
+	const { name, image, ingredients, instructions, description } = req.body;
 
 	const newRecipe = new recipe({
 		name,
@@ -33,7 +33,6 @@ const createRecipe = async (req, res) => {
 		ingredients,
 		instructions,
 		description,
-		picture,
 	});
 
 	newRecipe
@@ -58,7 +57,6 @@ const updateRecipeById = async (req, res) => {
 			recipe.name = req.body.name;
 			recipe.ingredients = req.body.ingredients;
 			recipe.instructions = req.body.instructions;
-			recipe.username = req.body.username;
 
 			recipe
 				.save()
